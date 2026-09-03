@@ -354,57 +354,70 @@ export default function App() {
           border-radius: 2px;
         }
         .zv-cta {
-          background: var(--yellow);
-          color: var(--ink);
-          border: none;
-          border-radius: 999px;
-          padding: 10px 18px;
-          font-size: 14px;
-          font-weight: 600;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          transition: transform 0.15s ease, background 0.15s ease;
-        }
-        .zv-cta:hover { background: var(--yellow-dark); transform: translateY(-1px); }
-        .zv-cta:active { transform: translateY(0); }
-        .zv-burger {
-          display: none;
-          background: none;
-          border: none;
-          color: var(--white);
-          padding: 6px;
-        }
-        .zv-mobile-panel {
-          display: none;
-        }
+  background: var(--yellow);
+  color: var(--ink);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.zv-cta:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+.zv-cta:active { transform: translateY(0); }
+.zv-burger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  padding: 6px;
+}
+.zv-mobile-panel {
+  display: none;
+}
 
-        @media (max-width: 760px) {
-          .zv-navlinks { display: none; }
-          .zv-burger { display: flex; }
-          .zv-cta span.zv-cta-label { display: none; }
-          .zv-mobile-panel.open {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            background: var(--ink);
-            margin-top: 8px;
-            border-radius: 20px;
-            padding: 12px;
-            max-width: 780px;
-            width: calc(100% - 32px);
-          }
-          .zv-mobile-panel button {
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.75);
-            text-align: left;
-            font-size: 15px;
-            padding: 10px 12px;
-            border-radius: 10px;
-          }
-          .zv-mobile-panel button.active { color: var(--white); background: rgba(255,255,255,0.08); }
-        }
+@media (max-width: 760px) {
+  .zv-navlinks { display: none; }
+  .zv-burger { display: flex; }
+  .zv-nav .zv-cta { display: none; }
+  .zv-mobile-panel.open {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--ink);
+    margin-top: 8px;
+    border-radius: 20px;
+    padding: 12px;
+    max-width: 780px;
+    width: calc(100% - 32px);
+  }
+  .zv-mobile-panel button {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.75);
+    text-align: left;
+    font-size: 15px;
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+  .zv-mobile-panel button.active { color: var(--white); background: rgba(255,255,255,0.08); }
+  .zv-mobile-panel button.zv-cta {
+    background: var(--yellow);
+    color: var(--ink);
+    border: none;
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    justify-content: center;
+    margin-top: 6px;
+  }
+  .zv-mobile-panel button.zv-cta span.zv-cta-label { display: inline; }
+}
 
         /* ---------- HERO ---------- */
         .zv-hero {
@@ -805,48 +818,52 @@ export default function App() {
         }
       `}</style>
 
-      {/* NAVBAR */}
-      <div className="zv-navwrap">
-        <div style={{ width: "100%", maxWidth: 780 }}>
-          <nav className="zv-nav">
-            <span className="zv-logo">
-              <img src={LOGO_SRC} alt="ZAHVO Technologies" className="zv-logo-mark" />
-              ZAHVO
-            </span>
-            <div className="zv-navlinks">
-              {NAV_LINKS.map((l) => (
-                <button
-                  key={l.id}
-                  className={active === l.id ? "active" : ""}
-                  onClick={() => scrollTo(l.id)}
-                >
-                  {l.label}
-                </button>
-              ))}
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <button className="zv-cta" onClick={() => scrollTo("contact")}>
-                <span className="zv-cta-label">Book a call</span>
-                <ArrowUpRight size={16} />
-              </button>
-              <button className="zv-burger" onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu">
-                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
-            </div>
-          </nav>
-          <div className={`zv-mobile-panel ${mobileOpen ? "open" : ""}`}>
-            {NAV_LINKS.map((l) => (
-              <button
-                key={l.id}
-                className={active === l.id ? "active" : ""}
-                onClick={() => scrollTo(l.id)}
-              >
-                {l.label}
-              </button>
-            ))}
-          </div>
-        </div>
+     {/* NAVBAR */}
+<div className="zv-navwrap">
+  <div style={{ width: "100%", maxWidth: 780 }}>
+    <nav className="zv-nav">
+      <span className="zv-logo">
+        <img src={LOGO_SRC} alt="ZAHVO Technologies" className="zv-logo-mark" />
+        ZAHVO
+      </span>
+      <div className="zv-navlinks">
+        {NAV_LINKS.map((l) => (
+          <button
+            key={l.id}
+            className={active === l.id ? "active" : ""}
+            onClick={() => scrollTo(l.id)}
+          >
+            {l.label}
+          </button>
+        ))}
       </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <button className="zv-cta" onClick={() => scrollTo("contact")}>
+          <span className="zv-cta-label">Book a call</span>
+          <ArrowUpRight size={16} />
+        </button>
+        <button className="zv-burger" onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu">
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+    </nav>
+    <div className={`zv-mobile-panel ${mobileOpen ? "open" : ""}`}>
+      {NAV_LINKS.map((l) => (
+        <button
+          key={l.id}
+          className={active === l.id ? "active" : ""}
+          onClick={() => scrollTo(l.id)}
+        >
+          {l.label}
+        </button>
+      ))}
+      <button className="zv-cta" onClick={() => scrollTo("contact")}>
+        <span className="zv-cta-label">Book a call</span>
+        <ArrowUpRight size={16} />
+      </button>
+    </div>
+  </div>
+</div>
 
       {/* HOME / HERO */}
       <section id="home" className="zv-section" style={{ paddingTop: 24 }}>
