@@ -31,7 +31,7 @@ const NAV_LINKS = [
 const TAG_ROWS = [
   [{ label: "Web Design", rotate: -3 }],
   [{ label: "MERN Stack", rotate: 2 }, { label: "WordPress", rotate: -4 }],
-  [{ icon: true, rotate: 0 }, { label: "Automation", rotate: 3 }],
+  [{ label: "Automation", rotate: 3 }],
   [{ label: "Branding", rotate: -2 }, { label: "UI / UX", rotate: 2 }],
 ];
 
@@ -145,7 +145,7 @@ function ServiceDropdown({ selected, onChange }) {
       >
         <span>
           {selected.length === 0
-            ? "Select service(s)"
+            ? "Select services"
             : selected.length === 1
             ? selected[0]
             : `${selected.length} services selected`}
@@ -900,12 +900,12 @@ export default function App() {
 
             <div className="zv-card-stack">
               <div className="zv-card dark" style={{ flex: 1 }}>
-                <p className="zv-stat-num">40+</p>
+                <p className="zv-stat-num">3+</p>
                 <p className="zv-stat-label">projects shipped across web, product and automation.</p>
               </div>
               <div className="zv-card" style={{ flex: 1 }}>
-                <p className="zv-stat-num">98%</p>
-                <p className="zv-stat-label on-light">of clients rebook us for their next project.</p>
+                <p className="zv-stat-num">100%</p>
+                <p className="zv-stat-label on-light">of our clients are satisfied with our work</p>
               </div>
             </div>
 
@@ -916,8 +916,8 @@ export default function App() {
               </p>
               <div className="zv-avatars">
                 <div className="zv-avatar" style={{ background: "#2b6cb0" }}>JR</div>
-                <div className="zv-avatar" style={{ background: "#b3432f" }}>SK</div>
-                <div className="zv-avatar" style={{ background: "var(--yellow-dark)" }}>AL</div>
+                {/* <div className="zv-avatar" style={{ background: "#b3432f" }}>SK</div>
+                <div className="zv-avatar" style={{ background: "var(--yellow-dark)" }}>AL</div> */}
               </div>
             </div>
           </div>
@@ -1055,12 +1055,12 @@ export default function App() {
               </div>
               <div className="zv-contact-info-item">
                 <div className="zv-svc-icon"><Phone size={17} /></div>
-                +92 300 0000000
+                +92 325 8741423
               </div>
-              <div className="zv-contact-info-item">
+              {/* <div className="zv-contact-info-item">
                 <div className="zv-svc-icon"><MapPin size={17} /></div>
                 Remote-first, working worldwide
-              </div>
+              </div> */}
             </div>
 
             <form className="zv-form-card" onSubmit={handleSubmit} noValidate>
