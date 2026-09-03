@@ -513,9 +513,9 @@ export default function App() {
         .zv-section { padding: 96px 0; }
         .zv-section.dark { background: var(--ink); color: var(--white); }
         .zv-eyebrow-label { font-size: 14px; color: var(--yellow-dark); font-weight: 600; margin-bottom: 10px; }
-        .zv-section-head { font-size: clamp(28px, 4vw, 38px); font-weight: 700; max-width: 480px; }
+        .zv-section-head { font-size: clamp(28px, 4vw, 38px); font-weight: 700; max-width: 480px; padding-top:8px; }
         .dark .zv-section-head { color: var(--white); }
-        .zv-section-sub { color: var(--ink-soft); font-size: 15px; line-height: 1.65; max-width: 460px; margin-top: 16px; }
+        .zv-section-sub { color: var(--ink-soft); font-size: 15px; line-height: 1.65; max-width: 460px; margin-top: 16px; padding-top: 16px; }
         .dark .zv-section-sub { color: rgba(255,255,255,0.68); }
 
         /* ---------- ABOUT ---------- */
